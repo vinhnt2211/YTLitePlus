@@ -66,6 +66,11 @@ jobs:
           ref: ${{ github.event.inputs.commit_id || github.ref }}
           submodules: recursive
 
+      - name: Select Xcode Version
+        run: |
+          sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
+          xcodebuild -version
+
       - name: Install Dependencies
         run: brew install ldid dpkg make
 
